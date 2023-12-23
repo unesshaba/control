@@ -7,9 +7,9 @@ import java.util.List;
 
 
 public interface ComputerManage {
-    ComputerDTO getComputerByProce(Long proce);
-    ComputerDTO getComputerByPrice(Long price);
+    List<ComputerDTO> getComputerByProce(Long proce);
+    List<ComputerDTO> getComputerByPrice(Long price);
     ComputerDTO SaveComputer(ComputerDTO computerDTO);
-    void deleteComputer(Long id);
+    ComputerDTO deleteComputer(Long id);
     List<ComputerDTO> getAllComputers();
 }

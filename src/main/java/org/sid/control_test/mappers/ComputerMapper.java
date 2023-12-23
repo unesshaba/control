@@ -20,11 +20,11 @@ public class ComputerMapper {
 //        return this.modelMapper.map(cumputer, ComputerDTO.class);
 //    }
 
-    private ComputerDTO convertToDto(Computer computer) {
+    public ComputerDTO convertToDto(Computer computer) {
         return modelMapper.map(computer, ComputerDTO.class);
     }
 
-    private Computer convertToEntity(ComputerDTO computerDTO) {
+    public Computer convertToEntity(ComputerDTO computerDTO) {
         return modelMapper.map(computerDTO, Computer.class);
     }
 

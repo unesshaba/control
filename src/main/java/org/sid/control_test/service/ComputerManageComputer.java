@@ -23,12 +23,13 @@ public class ComputerManageComputer implements ComputerManage {
     }
 
     @Override
-    public ComputerDTO getComputerByProce(Long proce) {
-        return computerRepository.findComputerByProce(proce);
+    public List<ComputerDTO> getComputerByProce(Long proce) {
+       return computerRepository.findComputerByProce(proce);
+
     }
 
     @Override
-    public ComputerDTO getComputerByPrice(Long price) {
+    public List<ComputerDTO> getComputerByPrice(Long price) {
         return computerRepository.findComputerByProce(price);
     }
 
@@ -44,9 +45,10 @@ public class ComputerManageComputer implements ComputerManage {
 
 
     @Override
-    public void deleteComputer(Long id) {
-       computerRepository.deleteById(id);
-
+    public  ComputerDTO deleteComputer(Long id) {
+      Computer computer= computerRepository.findById(id).orElseThrow(()->new RuntimeException("book doesn't exist"));
+      computerRepository.deleteById(id);
+      return computerMapper.convertToDto(computer);
     }
     @Override
     public List<ComputerDTO> getAllComputers() {
