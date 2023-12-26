@@ -46,7 +46,7 @@ public class ComputerManageComputer implements ComputerManage {
 
     @Override
     public  ComputerDTO deleteComputer(Long id) {
-      Computer computer= computerRepository.findById(id).orElseThrow(()->new RuntimeException("book doesn't exist"));
+      Computer computer= computerRepository.findById(id).orElseThrow(()->new RuntimeException("computer doesn't exist"));
       computerRepository.deleteById(id);
       return computerMapper.convertToDto(computer);
     }
